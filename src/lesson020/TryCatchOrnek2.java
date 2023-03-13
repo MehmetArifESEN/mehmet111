@@ -10,7 +10,13 @@ public class TryCatchOrnek2 {
 
 		// elemaniGetir(array);
 		sum(array);
-		sum2(array);
+		
+		try {
+			sum3(array);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+		
 	}
 
 	// Parametre olarak array alan ve girdiğimiz değere karşılık gelen indexi
@@ -44,7 +50,8 @@ public class TryCatchOrnek2 {
 		for (String string : array) {
 			try {
 				toplam += Integer.valueOf(string);
-			} catch (Exception e) {
+			}
+			catch (Exception e) {
 				hataToplam++;
 			}
 		}
@@ -79,7 +86,11 @@ public class TryCatchOrnek2 {
 			try {
 				nullCheck(string);
 				toplam += Integer.valueOf(string);
-			} catch (Exception e) {
+			}catch (NullPointerCheck e) {
+				System.out.println(e.toString());
+				hataToplam++;
+			}
+			catch (Exception e) {
 				System.out.println(e);
 				hataToplam++;
 			}
@@ -88,10 +99,16 @@ public class TryCatchOrnek2 {
 	}
 
 	// nullpointer hatasını farklı bir methodda kontrol edelim
-	public static String nullCheck(String string) {
-		if(string == null) {
-			throw new NullPointerException("null olamazzzzzz");
+	
+	//throw thorws
+	//unchecked chekd farkı
+	public static String nullCheck(String string) throws NullPointerCheck {
+		if (string == null) {
+			throw new NullPointerCheck("null olamaz");
 		}
 		return string;
 	}
+	
+	//NullPointerCheck sınıfı oluşturalım
+	
 }

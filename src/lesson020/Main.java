@@ -8,8 +8,15 @@ public class Main {
 
 	public static void main(String[] args) {
 		
-		
 
+		try {
+			list.add(2);
+		} catch (NullPointerException e) {
+			
+		}
+		System.out.println("Bu satır çalışıyor mu");
 	}
+
+	
 
 }
